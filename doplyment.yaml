@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vb-deployment
+spec:
+  replicas: 1  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: vb
+  template:
+    metadata:
+      labels:
+        app: vb
+    spec:
+      containers:
+      - name: vb
+        image: dinu7031/vb:latest
+        ports:
+        - containerPort: 8000 # Port your application listens on
